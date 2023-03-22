@@ -63,6 +63,7 @@ def load_game(url, date):
     
 
 def load_games(date):
+    os.makedirs(os.path.dirname("./data"), exist_ok=True)
     url = base_url(date.day, date.month, date.year)
     page = load_page(url)
     if page.findAll('strong')[1].contents[0] == 'No games played on this date.':
